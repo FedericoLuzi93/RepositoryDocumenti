@@ -135,4 +135,14 @@ VALUES (CURRENT_TIMESTAMP, 1, 1, 1, 1, 'Nota', 1.5, 'Utente');
 INSERT INTO DETTAGLIO_MOVIMENTO(NUM_PROGRESSIVO,DATA_DETTAGLIO_MOVIMENTO, DERRATA, QUANTITA_RICHIESTA, QUANTITA_EFFETTIVA, PREZZO_UNITARIO, TOTALE_VALORE)
 VALUES (1, CURRENT_TIMESTAMP, 28, 1, 1, 1.5, 1.5);
 
+INSERT INTO ass_tipo_pasto_mensa (codice_mensa_fk, codice_tipo_pasto_fk) VALUES(55, 1);
+INSERT INTO ass_tipo_pasto_mensa (codice_mensa_fk, codice_tipo_pasto_fk) VALUES(55, 2);
+INSERT INTO ass_tipo_pasto_mensa (codice_mensa_fk, codice_tipo_pasto_fk) VALUES(55, 3);
+INSERT INTO ass_tipo_pasto_mensa (codice_mensa_fk, codice_tipo_pasto_fk) VALUES(56, 2);
+
+INSERT INTO tipo_pasto (descrizione) VALUES('colazione');
+INSERT INTO tipo_pasto (descrizione) VALUES('pranzo');
+INSERT INTO tipo_pasto (descrizione) VALUES('cena');
+INSERT INTO tipo_pasto (descrizione) VALUES('cestino');
+
 

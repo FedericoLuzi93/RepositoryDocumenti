@@ -246,3 +246,21 @@ CREATE TABLE DETTAGLIO_MOVIMENTO
 	TOTALE_VALORE DECIMAL (5,2)
 );
 
+CREATE TABLE ass_tipo_pasto_mensa (
+	ass_tipo_pasto_mensa_id serial4 NOT NULL,
+	codice_mensa_fk int4 NOT NULL,
+	codice_tipo_pasto_fk int4 NOT NULL,
+	CONSTRAINT ass_tipo_pasto_mensa_pkey PRIMARY KEY (ass_tipo_pasto_mensa_id)
+);
+
+
+ALTER TABLE public.ass_tipo_pasto_mensa ADD CONSTRAINT ass_tipo_pasto_mensa_codice_mensa_fk_fkey FOREIGN KEY (codice_mensa_fk) REFERENCES mensa(codice_mensa);
+ALTER TABLE public.ass_tipo_pasto_mensa ADD CONSTRAINT ass_tipo_pasto_mensa_codice_tipo_pasto_fk_fkey FOREIGN KEY (codice_tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
+
+
+CREATE TABLE tipo_pasto (
+	codice_tipo_pasto serial4 NOT NULL,
+	descrizione varchar(50) NULL,
+	CONSTRAINT tipo_pasto_pkey PRIMARY KEY (codice_tipo_pasto)
+);
+
