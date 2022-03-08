@@ -1,6 +1,8 @@
 ALTER TABLE ente ADD COLUMN ente_riferimento VARCHAR(256) references ente(codice_aced);
 alter table ente add column mensa_fk int references mensa(codice_mensa);
 
+--TEST
+
 CREATE TABLE DIPENDENTE
 (
 	CODICE_DIPENDENTE SERIAL PRIMARY KEY,
