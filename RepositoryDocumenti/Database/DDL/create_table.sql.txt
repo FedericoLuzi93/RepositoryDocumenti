@@ -203,6 +203,8 @@ CREATE TABLE ente (
 	ente_riferimento int4 NULL,
 	descrizione_ente varchar(256) NULL,
 	id_ente serial4 NOT NULL,
+	indirizzo varchar(50) NULL,
+	localita varchar(50) NULL,
 	CONSTRAINT ente_pkey PRIMARY KEY (id_ente),
 	CONSTRAINT ente_fk FOREIGN KEY (ente_riferimento) REFERENCES ente(id_ente)
 );
