@@ -58,11 +58,11 @@ CREATE TABLE mensa (
 	numero_autorizzazione_sanitaria varchar(50) NULL,
 	data_autorizzazione_sanitaria date NULL,
 	aut_sanitaraia_rilasciata_da varchar(100) NULL,
-	via varchar(50) NOT NULL,
-	numero_civico int4 NOT NULL,
-	cap varchar(5) NOT NULL,
-	citta varchar(50) NOT NULL,
-	telefono varchar(50) NOT NULL,
+	via varchar(50) NULL,
+	numero_civico int4 NULL,
+	cap varchar(5) NULL,
+	citta varchar(50) NULL,
+	telefono varchar(50) NULL,
 	fax varchar(50) NULL,
 	email varchar(50) NULL,
 	provincia varchar(3) NOT NULL,
@@ -70,6 +70,9 @@ CREATE TABLE mensa (
 	data_inizio_servizio date NULL,
 	data_fine_servizio date NULL,
 	ente_fk int4 NULL,
+	servizio_festivo_sabato varchar(1) NULL,
+	servizio_festivo_domenica varchar(1) NULL,
+	tipo_dieta varchar(50) NULL DEFAULT Normale,
 	CONSTRAINT mensa_pkey PRIMARY KEY (codice_mensa)
 );
 
