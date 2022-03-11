@@ -72,7 +72,7 @@ CREATE TABLE mensa (
 	ente_fk int4 NULL,
 	servizio_festivo_sabato varchar(1) NULL,
 	servizio_festivo_domenica varchar(1) NULL,
-	tipo_dieta varchar(50) NULL DEFAULT Normale,
+	tipo_dieta varchar(50) NULL DEFAULT 'Normale'::character varying,
 	CONSTRAINT mensa_pkey PRIMARY KEY (codice_mensa)
 );
 
@@ -264,3 +264,13 @@ CREATE TABLE ass_tipo_pasto_mensa (
 
 ALTER TABLE public.ass_tipo_pasto_mensa ADD CONSTRAINT ass_tipo_pasto_mensa_codice_mensa_fk_fkey FOREIGN KEY (codice_mensa_fk) REFERENCES mensa(codice_mensa);
 ALTER TABLE public.ass_tipo_pasto_mensa ADD CONSTRAINT ass_tipo_pasto_mensa_codice_tipo_pasto_fk_fkey FOREIGN KEY (codice_tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
+
+CREATE TABLE servizio_evento (
+	id_servizio_evento serial4 NOT NULL,
+	data_servizio_evento date NULL,
+	descrizione_servizio_evento varchar(50) NULL,
+	mensa_fk int4 NULL,
+	CONSTRAINT servizio_evento_pkey PRIMARY KEY (id_servizio_evento)
+);
+
+ALTER TABLE public.servizio_evento ADD CONSTRAINT servizio_evento_mensa_fk_fkey FOREIGN KEY (mensa_fk) REFERENCES mensa(codice_mensa);
