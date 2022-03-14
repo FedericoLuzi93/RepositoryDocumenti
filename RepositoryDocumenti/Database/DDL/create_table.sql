@@ -274,3 +274,23 @@ CREATE TABLE servizio_evento (
 );
 
 ALTER TABLE public.servizio_evento ADD CONSTRAINT servizio_evento_mensa_fk_fkey FOREIGN KEY (mensa_fk) REFERENCES mensa(codice_mensa);
+
+-- prenotazioni
+
+create table IDENTIFICATIVO_SISTEMA
+(
+	ID_SISTEMA varchar(20) primary key,
+	DESCRIZIONE_SISTEMA VARCHAR(50)
+);
+
+create table TIPO_DIETA
+(
+ID_TIPO_DIETA SERIAL primary KEY,
+DESCRIZIONEE_TIPO_DIETA VARCHAR(50)
+);
+
+create table TIPO_RAZIONE
+(
+ID_TIPO_RAZIONE SERIAL primary key,
+DESCRIZIONE_TIPO_RAZIONE VARCHAR(50)
+);
