@@ -50,6 +50,12 @@ CREATE TABLE TIPO_FORMA_VETTOVAGLIAMENTO
 	DESCRIZIONE VARCHAR(200)
 );
 
+-- public.mensa definition
+
+-- Drop table
+
+-- DROP TABLE mensa;
+
 CREATE TABLE mensa (
 	codice_mensa serial4 NOT NULL,
 	descrizione_mensa varchar(100) NOT NULL,
@@ -65,7 +71,7 @@ CREATE TABLE mensa (
 	telefono varchar(50) NULL,
 	fax varchar(50) NULL,
 	email varchar(50) NULL,
-	provincia varchar(3) NOT NULL,
+	provincia varchar(3) NULL,
 	tipo_forma_vettovagliamento_fk int4 NULL,
 	data_inizio_servizio date NULL,
 	data_fine_servizio date NULL,
