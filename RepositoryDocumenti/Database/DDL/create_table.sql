@@ -50,16 +50,9 @@ CREATE TABLE TIPO_FORMA_VETTOVAGLIAMENTO
 	DESCRIZIONE VARCHAR(200)
 );
 
--- public.mensa definition
-
--- Drop table
-
--- DROP TABLE mensa;
-
 CREATE TABLE mensa (
 	codice_mensa serial4 NOT NULL,
 	descrizione_mensa varchar(100) NOT NULL,
-	servizio_festivo varchar(1) NOT NULL,
 	autorizzazione_sanitaria bytea NULL,
 	numero_autorizzazione_sanitaria varchar(50) NULL,
 	data_autorizzazione_sanitaria date NULL,
