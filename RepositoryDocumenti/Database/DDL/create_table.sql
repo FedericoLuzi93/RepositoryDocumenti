@@ -287,10 +287,10 @@ ID_TIPO_DIETA SERIAL primary KEY,
 DESCRIZIONEE_TIPO_DIETA VARCHAR(50)
 );
 
-create table TIPO_RAZIONE
-(
-ID_TIPO_RAZIONE SERIAL primary key,
-DESCRIZIONE_TIPO_RAZIONE VARCHAR(50)
+CREATE TABLE tipo_razione (
+	id_tipo_razione varchar(1) NOT NULL DEFAULT nextval('tipo_razione_id_tipo_razione_seq'::regclass),
+	descrizione_tipo_razione varchar(50) NULL,
+	CONSTRAINT tipo_razione_pkey PRIMARY KEY (id_tipo_razione)
 );
 
 create table ASS_MENSA_TIPO_DIETA
@@ -299,3 +299,23 @@ ID_ASS_MENSA_TIPO_DIETA SERIAL primary key,
 MENSA_FK INT references MENSA(CODICE_MENSA),
 TIPO_DIETA_FK INT references TIPO_DIETA(ID_TIPO_DIETA)
 );
+
+CREATE TABLE prenotazione (
+	id_prenotazione serial4 NOT NULL,
+	identificativo_sistema_fk varchar(20) NOT NULL,
+	ente_fk int4 NOT NULL,
+	data_prenotazione date NOT NULL,
+	codice_fiscale varchar(16) NOT NULL,
+	tipo_pasto_fk int4 NOT NULL,
+	flag_cestino varchar(1) NOT NULL,
+	tipo_dieta_fk int4 NOT NULL,
+	tipo_razione_fk varchar(1) NOT NULL,
+	CONSTRAINT prenotazione_pkey PRIMARY KEY (id_prenotazione)
+);
+
+ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_ente_fk_fkey FOREIGN KEY (ente_fk) REFERENCES ente(id_ente);
+ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_identificativo_sistema_fk_fkey FOREIGN KEY (identificativo_sistema_fk) REFERENCES identificativo_sistema(id_sistema);
+ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_dieta_fk_fkey FOREIGN KEY (tipo_dieta_fk) REFERENCES tipo_dieta(id_tipo_dieta);
+ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_pasto_fk_fkey FOREIGN KEY (tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
+ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_razione_fk FOREIGN KEY (tipo_razione_fk) REFERENCES tipo_razione(id_tipo_razione);
+
