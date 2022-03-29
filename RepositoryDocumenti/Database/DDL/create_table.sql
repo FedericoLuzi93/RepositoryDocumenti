@@ -71,7 +71,6 @@ CREATE TABLE mensa (
 	ente_fk int4 NULL,
 	servizio_festivo_sabato varchar(1) NULL,
 	servizio_festivo_domenica varchar(1) NULL,
-	tipo_dieta varchar(50) NULL DEFAULT 'Normale'::character varying,
 	CONSTRAINT mensa_pkey PRIMARY KEY (codice_mensa)
 );
 
