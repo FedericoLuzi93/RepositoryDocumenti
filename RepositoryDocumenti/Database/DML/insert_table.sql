@@ -3,21 +3,20 @@ INSERT INTO organo_direttivo (descrizione_organo_direttivo) VALUES('Organo diret
 INSERT INTO organo_direttivo (descrizione_organo_direttivo) VALUES('Organo direttivo 2');
 INSERT INTO organo_direttivo (descrizione_organo_direttivo) VALUES('Organo direttivo 3');
 
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Capo servizio commissariato');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Commissariato');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Ufficiale Addetto ai servizi di Commissariato');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Sottufficiale addetto al vettovagliamento');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Gestore');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Aiutante del gestore');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Capo segreteria');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Rappresentante della ditta appaltatrice');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Capo Ufficio Maggiorità e Personale');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Aiutante Maggiore');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Comandante di Corpo');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Capo Gestione Patrimoniale');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Capo Servizio amministrativo');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Capo Sezione Coordinamento Amministrativo');
-INSERT INTO ruolo_mensa (descrizione_ruolo_mensa, organo_direttivo_fk) VALUES('Presidente della commissione amministrativa');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Capo servizio commissariato');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Commissariato');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Ufficiale Addetto ai servizi di Commissariato');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Sottufficiale addetto al vettovagliamento');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Gestore');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Capo segreteria');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Rappresentante della ditta appaltatrice');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Capo Ufficio Maggiorità e Personale');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Comandante di Corpo');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Capo Gestione Patrimoniale');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Capo Servizio amministrativo');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Capo Sezione Coordinamento Amministrativo');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Presidente della commissione amministrativa');
+INSERT INTO ruolo_mensa (descrizione_ruolo_mensa) VALUES('Aiutante gestore');
 
 INSERT INTO tipo_locale (descrizione_tipo_locale) VALUES('Spogliatoio');
 INSERT INTO tipo_locale (descrizione_tipo_locale) VALUES('Refettorio');
@@ -59,8 +58,7 @@ INSERT INTO dipendente (foto, nome, cognome, codice_fiscale, cmd, matricola, ema
 INSERT INTO tipo_forma_vettovagliamento (descrizione) VALUES('Gestione diretta');
 INSERT INTO tipo_forma_vettovagliamento (descrizione) VALUES('Gestione mista');
 INSERT INTO tipo_forma_vettovagliamento (descrizione) VALUES('Gestione indiretta');
-INSERT INTO tipo_forma_vettovagliamento (descrizione) VALUES('Fornitura di buono pasto');
-INSERT INTO tipo_forma_vettovagliamento (descrizione) VALUES('Fornitura di razione viveri da combattimento');
+
 
 INSERT INTO TIPO_DERRATE (DESCRIZIONE) VALUES ('Fresco');
 INSERT INTO TIPO_DERRATE (DESCRIZIONE) VALUES ('Carne');
@@ -208,6 +206,7 @@ INSERT INTO tipo_dieta (descrizione_tipo_dieta) VALUES('Per degenti leggera');
 INSERT INTO tipo_dieta (descrizione_tipo_dieta) VALUES('Per degenti media');
 INSERT INTO tipo_dieta (descrizione_tipo_dieta) VALUES('Per degenti pesante');
 
-INSERT INTO tipo_razione (descrizione_tipo_razione) VALUES('Ordinaria');
-INSERT INTO tipo_razione (descrizione_tipo_razione) VALUES('Media');
-INSERT INTO tipo_razione (descrizione_tipo_razione) VALUES('Pesante');
+INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('O', 'Ordinaria');
+INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('M', 'Media');
+INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('P', 'Pesante');
+INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('C', 'Combattimento (CBT)');

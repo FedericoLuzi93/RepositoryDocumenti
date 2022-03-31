@@ -319,3 +319,8 @@ ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_dieta_fk_fkey F
 ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_pasto_fk_fkey FOREIGN KEY (tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
 ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_razione_fk FOREIGN KEY (tipo_razione_fk) REFERENCES tipo_razione(id_tipo_razione);
 
+CREATE TABLE tipo_pagamento (
+	id_tipo_pagamento varchar(2) NOT NULL,
+	descrizione_tipo_pagamento varchar(50) NULL,
+	CONSTRAINT tipo_pagamento_pkey PRIMARY KEY (id_tipo_pagamento)
+);
