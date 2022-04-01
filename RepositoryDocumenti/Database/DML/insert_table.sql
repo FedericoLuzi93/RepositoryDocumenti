@@ -210,3 +210,29 @@ INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('O',
 INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('M', 'Media');
 INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('P', 'Pesante');
 INSERT INTO tipo_razione (id_tipo_razione, descrizione_tipo_razione) VALUES('C', 'Combattimento (CBT)');
+
+-- struttura organizzativa
+INSERT INTO struttura_organizzativa VALUES('AA3','MM','Marina Militare','105');
+INSERT INTO struttura_organizzativa VALUES('AA4','AM','Aeronautica Militare','110');
+INSERT INTO struttura_organizzativa VALUES('AA5','CC','Arma dei Carabinieri','115');
+INSERT INTO struttura_organizzativa VALUES('AA8','MD (Pers.Civ.)','Ministero della Difesa (Personale Civile)','120');
+INSERT INTO struttura_organizzativa VALUES('AA19','OM','Ordinariato Militare','130');
+INSERT INTO struttura_organizzativa VALUES('AA20','AICR','Associazione Italiana della Croce Rossa','135');
+INSERT INTO struttura_organizzativa VALUES('AA21','ACISMOM','Associazione dei Cavalieri Italiani del Sovrano Militare Ordine di Malta','140');
+INSERT INTO struttura_organizzativa VALUES('AA6','GDF','Corpo della Guardia di Finanza','145');
+INSERT INTO struttura_organizzativa VALUES('AA7','PS','Polizia di Stato','150');
+INSERT INTO struttura_organizzativa VALUES('AA22','PP','Corpo di Polizia Penitenziaria','155');
+INSERT INTO struttura_organizzativa VALUES('AA23','CFS','Corpo Forestale dello Stato','160');
+INSERT INTO struttura_organizzativa VALUES('AA24','VF','Corpo Nazionale dei Vigili del Fuoco','165');
+INSERT INTO struttura_organizzativa VALUES('AA2','EI','Esercito Italiano','100');
+INSERT INTO struttura_organizzativa VALUES('AA998','AAA','DESCRIZIONE AAA','100');
+INSERT INTO struttura_organizzativa VALUES('AA997','BB','DESCRIZIONE BB','100');
+INSERT INTO struttura_organizzativa VALUES('AA25','PROVA','PROVA MODIFICA STORICA 2','170');
+INSERT INTO struttura_organizzativa VALUES('AA996','MM','Personale Militare T','100');
+INSERT INTO struttura_organizzativa VALUES('AA999','AA','DESCRIZIONE AA','100');
+INSERT INTO struttura_organizzativa VALUES('AA994','MM','Personale Militare T','100');
+
+-- tipo grado
+INSERT INTO tipo_grado (id_tipo_grado, descrizione_tipo_grado) VALUES('UF', 'Ufficiale');
+INSERT INTO tipo_grado (id_tipo_grado, descrizione_tipo_grado) VALUES('SU', 'Sottoufficiale');
+INSERT INTO tipo_grado (id_tipo_grado, descrizione_tipo_grado) VALUES('GT', 'Graduati e truppa');
