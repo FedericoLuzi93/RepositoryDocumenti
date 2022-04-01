@@ -338,3 +338,22 @@ create table TIPO_GRADO
 	ID_TIPO_GRADO VARCHAR(10) primary key,
 	DESCRIZIONE_TIPO_GRADO VARCHAR(50)
 );
+
+CREATE TABLE pasti_consumati (
+	id_pasti_consumati serial4 NOT NULL,
+	data_pasto date NULL,
+	cognome varchar(100) NULL,
+	nome varchar(100) NULL,
+	codice_fiscale varchar(30) NULL,
+	cmd varchar(30) NULL,
+	tipo_personale varchar(1) NULL,
+	ora_ingresso time NULL,
+	tipo_pagamento_fk varchar(2) NULL,
+	tipo_pasto_fk int4 NULL,
+	mensa_fk int4 NULL,
+	CONSTRAINT pasti_consumati_pkey PRIMARY KEY (id_pasti_consumati)
+);
+
+ALTER TABLE public.pasti_consumati ADD CONSTRAINT pasti_consumati_mensa_fk_fkey FOREIGN KEY (mensa_fk) REFERENCES mensa(codice_mensa);
+ALTER TABLE public.pasti_consumati ADD CONSTRAINT pasti_consumati_tipo_pagamento_fk_fkey FOREIGN KEY (tipo_pagamento_fk) REFERENCES tipo_pagamento(id_tipo_pagamento);
+ALTER TABLE public.pasti_consumati ADD CONSTRAINT pasti_consumati_tipo_pasto_fk_fkey FOREIGN KEY (tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
