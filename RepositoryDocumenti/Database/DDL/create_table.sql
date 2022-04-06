@@ -385,3 +385,11 @@ CREATE TABLE firma_quotidiana_dc4 (
 	CONSTRAINT firma_quotidiana_dc4_pkey PRIMARY KEY (id_firma),
 	CONSTRAINT firma_quotidiana_dc4_ente_fk_fkey FOREIGN KEY (ente_fk) REFERENCES ente(id_ente)
 );
+
+CREATE TABLE forza_effettiva (
+	id_forza_effettiva serial4 NOT NULL,
+	data_riferimento date NULL,
+	ente_fk int4 NULL,
+	CONSTRAINT forza_effettiva_pkey PRIMARY KEY (id_forza_effettiva),
+	CONSTRAINT forza_effettiva_ente_fk_fkey FOREIGN KEY (ente_fk) REFERENCES ente(id_ente)
+);
