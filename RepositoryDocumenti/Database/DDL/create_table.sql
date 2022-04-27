@@ -300,25 +300,6 @@ MENSA_FK INT references MENSA(CODICE_MENSA),
 TIPO_DIETA_FK INT references TIPO_DIETA(ID_TIPO_DIETA)
 );
 
-CREATE TABLE prenotazione (
-	id_prenotazione serial4 NOT NULL,
-	identificativo_sistema_fk varchar(20) NOT NULL,
-	ente_fk int4 NOT NULL,
-	data_prenotazione date NOT NULL,
-	codice_fiscale varchar(16) NOT NULL,
-	tipo_pasto_fk int4 NOT NULL,
-	flag_cestino varchar(1) NOT NULL,
-	tipo_dieta_fk int4 NOT NULL,
-	tipo_razione_fk varchar(1) NOT NULL,
-	CONSTRAINT prenotazione_pkey PRIMARY KEY (id_prenotazione)
-);
-
-ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_ente_fk_fkey FOREIGN KEY (ente_fk) REFERENCES ente(id_ente);
-ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_identificativo_sistema_fk_fkey FOREIGN KEY (identificativo_sistema_fk) REFERENCES identificativo_sistema(id_sistema);
-ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_dieta_fk_fkey FOREIGN KEY (tipo_dieta_fk) REFERENCES tipo_dieta(id_tipo_dieta);
-ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_pasto_fk_fkey FOREIGN KEY (tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
-ALTER TABLE public.prenotazione ADD CONSTRAINT prenotazione_tipo_razione_fk FOREIGN KEY (tipo_razione_fk) REFERENCES tipo_razione(id_tipo_razione);
-
 CREATE TABLE tipo_pagamento (
 	id_tipo_pagamento varchar(2) NOT NULL,
 	descrizione_tipo_pagamento varchar(50) NULL,
@@ -339,6 +320,44 @@ create table TIPO_GRADO
 	DESCRIZIONE_TIPO_GRADO VARCHAR(50)
 );
 
+create table GRADO
+(
+	SHSGRA_COD_UID_PK VARCHAR(10) primary key,
+	SHSOR_COD_UID_PK VARCHAR(10),
+	SHCMC_COD_UID_PK VARCHAR(10),
+	DESCB_GRADO VARCHAR(100),
+	DESCR_GRADO VARCHAR(100),
+	NUM_ORDINE VARCHAR(10),
+	DATA_INIZIO date,
+	DATA_FINE date,
+	TIPO_GRADO_FK VARCHAR(10) references TIPO_GRADO(ID_TIPO_GRADO),
+	DATA_INS timestamp, 
+	COD_ULT_AGG VARCHAR(100),
+	DATA_ULT_AGG timestamp
+);
+
+CREATE TABLE prenotazione (
+	id_prenotazione serial4 NOT NULL,
+	identificativo_sistema_fk varchar(20) references identificativo_sistema(id_sistema) NOT null,
+	identificativo_mensa_fk int references mensa(codice_mensa) not null,
+	data_prenotazione date NOT NULL,
+	codice_fiscale varchar(16) NOT NULL,
+	nome varchar(50) not null,
+	cognome varchar(50) not null,
+	tipo_personale varchar(1),
+	grado_fk varchar(10) references grado(shsgra_cod_uid_pk),
+	tipo_grado_fk varchar(10) references tipo_grado(id_tipo_grado),
+	struttura_organizzativa_fk varchar(20) references struttura_organizzativa(codice_struttura_organizzativa),
+	denominazione_unita_funzionale varchar(100),
+	commensale_esterno varchar(1) not null,
+	tipo_pagamento_fk varchar(2) references tipo_pagamento(id_tipo_pagamento),
+	tipo_pasto_fk int4 references tipo_pasto(codice_tipo_pasto) NOT null,
+	flag_cestino varchar(1) NOT NULL,
+	tipo_dieta_fk int4 references tipo_dieta(id_tipo_dieta),
+	tipo_razione_fk varchar(1) references tipo_razione(id_tipo_razione) not null
+);
+
+
 CREATE TABLE pasti_consumati (
 	id_pasti_consumati serial4 NOT NULL,
 	data_pasto date NULL,
@@ -357,3 +376,20 @@ CREATE TABLE pasti_consumati (
 ALTER TABLE public.pasti_consumati ADD CONSTRAINT pasti_consumati_mensa_fk_fkey FOREIGN KEY (mensa_fk) REFERENCES mensa(codice_mensa);
 ALTER TABLE public.pasti_consumati ADD CONSTRAINT pasti_consumati_tipo_pagamento_fk_fkey FOREIGN KEY (tipo_pagamento_fk) REFERENCES tipo_pagamento(id_tipo_pagamento);
 ALTER TABLE public.pasti_consumati ADD CONSTRAINT pasti_consumati_tipo_pasto_fk_fkey FOREIGN KEY (tipo_pasto_fk) REFERENCES tipo_pasto(codice_tipo_pasto);
+
+CREATE TABLE firma_quotidiana_dc4 (
+	id_firma serial4 NOT NULL,
+	data_firma date NULL,
+	id_operatore int4 NULL,
+	ente_fk int4 NULL,
+	CONSTRAINT firma_quotidiana_dc4_pkey PRIMARY KEY (id_firma),
+	CONSTRAINT firma_quotidiana_dc4_ente_fk_fkey FOREIGN KEY (ente_fk) REFERENCES ente(id_ente)
+);
+
+CREATE TABLE forza_effettiva (
+	id_forza_effettiva serial4 NOT NULL,
+	data_riferimento date NULL,
+	ente_fk int4 NULL,
+	CONSTRAINT forza_effettiva_pkey PRIMARY KEY (id_forza_effettiva),
+	CONSTRAINT forza_effettiva_ente_fk_fkey FOREIGN KEY (ente_fk) REFERENCES ente(id_ente)
+);
